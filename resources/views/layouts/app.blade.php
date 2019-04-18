@@ -53,6 +53,7 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item dropdown">
+                                
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                                   <a class="dropdown-item" href="{{ route('login') }}"> {{ __('Login') }}</a>
@@ -66,7 +67,9 @@
                          
                            
                         @else
+                            
                             <li class="nav-item dropdown">
+                                
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -77,6 +80,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="/PageCrud/create">Create New Page</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

@@ -11,6 +11,7 @@
 
         <!-- Styles -->
         <style>
+            a.ex1:hover, a.ex1:active {color: black;}
             html, body {
                 background-color: #e3e7ed;
                 color: #636b6f;
@@ -49,7 +50,7 @@
             }
 
             .links > a {
-                color: black;
+                color: #636b6f;
                 padding: 0 25px;
                 font-size: 15px;
                 font-weight: 600;
@@ -68,29 +69,31 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="/dashboard">dashboard</a>
+                        <a class="ex1" href="/dashboard">dashboard</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a class="ex1" href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a class="ex1" href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
-
+            
             <div class="content">
+               
                 <div class="title m-b-md">
                     Elite Network
                 </div>
                 <div class="jumbotron-1">
                     <h1 class="display-3">Together for more!</h1>
                 </div>
-                <hr>
-                <div class="links">
-                    <a href="/about">about</a>
-                    <a href="/blog">Blog</a>
-                    <a href="/contact">contact</a>
+           
+                
+                <div class="links ">
+                    <a class="ex1" data-toggle="tooltip" data-placement="top" title="About Page" href="/about">about</a>
+                    <a class="ex1"data-toggle="tooltip" data-placement="top" title="Blog Page"href="/blog">Blog</a>
+                    <a class="ex1"data-toggle="tooltip" data-placement="top" title="contact Page"href="/contact">contact</a>
                 </div>
             </div>
         </div>
