@@ -18,14 +18,17 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function()
 {
-    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    Route::get('/dashboard', 'HomeController@index')
+    ->name('dashboard');
     Route::resource('PageCrud', 'PageCrudController')
     ->middleware('admin');
    
    
 });
-    Route::get('/admin', 'PageCrudController@index')->middleware('admin');  
-    Route::get('/AccessDenied', 'HomeController@accessdenied')->name('lol');
+    Route::get('/admin', 'PageCrudController@index')
+    ->middleware('admin');  
+    Route::get('/AccessDenied', 'HomeController@accessdenied')
+    ->name('lol');
 
 
 Route::get('/', function () {

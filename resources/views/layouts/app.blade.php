@@ -80,8 +80,9 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    @if(auth()->user()->isAdmin == 1)
                                     <a class="dropdown-item" href="/PageCrud/create">Create New Page</a>
-
+                                    @endif     
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
