@@ -15,7 +15,9 @@
                 
                 <div class="card-body">
                         <div class="text-center">
-                                <a href="/PageCrud" class="btn btn-info btn-sm " role="button">Page Dashboard</a>
+                                <a href="{{ route('ActivationCode.create')}}" class="btn btn-primary">Generate a Code</a>
+                                <a href="/PageCrud" class="btn btn-primary" role="button">Page Dashboard</a>
+                                <a class="btn btn-primary" href="{{route('ActivationCode.index')}}"> My Activation Codes</a> 
                              <br>
                                 Hi admin, You are logged in!
                             </div>
@@ -32,6 +34,7 @@
             
 
                 <div class="card-body">
+                        <a href="{{ route('ActivationCode.create')}}" class="btn btn-primary">Generate a Code</a>
                     Hi muggle, You are logged in!
                 </div>
                

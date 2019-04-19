@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
+use Carbon\Carbon;
+use App\ActivationCode;
+use Auth;
 class ActivationCodeController extends Controller
 {
     /**
@@ -13,7 +16,25 @@ class ActivationCodeController extends Controller
      */
     public function index()
     {
-        //
+        $ActivationCodes = ActivationCode::all();
+        $asd = ActivationCode::all();
+        foreach($ActivationCodes as $time)
+        {
+            $sasd = $time->created_at;
+            $expTime = $sasd->addMonths(6);
+           
+            
+        }
+      
+
+        
+
+
+        
+    
+       
+       
+        return view('ActivationCodePage.ActivationCodeIndex', compact('ActivationCodes','asd','expTime'));
     }
 
     /**
@@ -23,7 +44,10 @@ class ActivationCodeController extends Controller
      */
     public function create()
     {
-        //
+        
+        
+        $random = Str::random(4).date('Hsi');
+        return view('ActivationCodePage.ActivationCodeCreate')->with('random',$random);
     }
 
     /**
@@ -34,7 +58,17 @@ class ActivationCodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'ActivationCode'=>'required',
+            
+          ]);
+          $AC = new ActivationCode([
+            'ActivationCode' => $request->get('ActivationCode'),
+            'User_id'=> Auth::user()->id,
+            
+          ]);
+          $AC->save();
+          return redirect('/ActivationCode')->with('success', 'ActivationCode has been created');
     }
 
     /**
@@ -54,10 +88,7 @@ class ActivationCodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+   
 
     /**
      * Update the specified resource in storage.
@@ -66,10 +97,7 @@ class ActivationCodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+   
 
     /**
      * Remove the specified resource from storage.
@@ -79,6 +107,9 @@ class ActivationCodeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $share = ActivationCode::find($id);
+        $share->delete();
+   
+        return redirect('/ActivationCode')->with('success', 'Activation Code has been deleted Successfully');
     }
 }
