@@ -22,6 +22,8 @@ Route::group(['middleware' => ['auth']], function()
     ->name('dashboard');
     Route::resource('PageCrud', 'PageCrudController')
     ->middleware('admin');
+    Route::resource('ActivationCode', 'ActivationCodeController');
+    
    
    
 });
