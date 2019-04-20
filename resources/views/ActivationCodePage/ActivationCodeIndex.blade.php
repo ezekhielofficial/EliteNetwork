@@ -24,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($ActivationCodes as $ActivationCode)
+        @foreach($usercode as $ActivationCode)
         @if($expTime >= $ActivationCode->created_at )
         <tr>
             <td>{{$ActivationCode->id}}</td>

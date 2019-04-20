@@ -26,6 +26,24 @@
                     
                    
                 </div>
+                <hr>
+                <table class="table table-striped">
+                        <tr>
+                            <th>Activation Code</th>
+                            <th>Created at</th>  
+                            <th>Expired on</th> 
+                        </tr>
+    
+                   
+                    @foreach($User_code as $code)
+    
+                    <tr>
+                            <th>{{$code->ActivationCode}}</th> 
+                            <th>{{$code->created_at}}</th> 
+                            <th>{{$code->ActivationCode}}</th> 
+                    </tr>
+                    @endforeach
+                </table>
                 
                               
                 
@@ -37,6 +55,26 @@
                         <a href="{{ route('ActivationCode.create')}}" class="btn btn-primary">Generate a Code</a>
                     Hi muggle, You are logged in!
                 </div>
+                <hr>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Activation Code</th>
+                        <th>Created at</th>  
+                        <th>Expired on</th> 
+                    </tr>
+
+               
+                @foreach($User_code as $code)
+
+                <tr>
+                        <th>{{$code->ActivationCode}}</th> 
+                        <th>{{$code->created_at}}</th> 
+                        <th>{{$code->ActivationCode}}</th> 
+                </tr>
+                @endforeach
+            </table>
+
+
                
             @endif
 

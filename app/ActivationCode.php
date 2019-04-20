@@ -11,5 +11,8 @@ class ActivationCode extends Model
         'User_id',
         
       ];
-      
+      public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\ActivationCode;
 use Auth;
+use App\User;
 class ActivationCodeController extends Controller
 {
     /**
@@ -17,7 +18,9 @@ class ActivationCodeController extends Controller
     public function index()
     {
         $ActivationCodes = ActivationCode::all();
-        $asd = ActivationCode::all();
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        
         foreach($ActivationCodes as $time)
         {
             $sasd = $time->created_at;
@@ -30,9 +33,9 @@ class ActivationCodeController extends Controller
 
         
     
+        return view('ActivationCodePage.ActivationCodeIndex')->with('ActivationCodes',$ActivationCodes)->with('expTime', $expTime)->with('usercode', $user->activationcode);
        
        
-        return view('ActivationCodePage.ActivationCodeIndex', compact('ActivationCodes','asd','expTime'));
     }
 
     /**
