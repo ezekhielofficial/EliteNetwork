@@ -22,8 +22,6 @@ class ActivationCodeController extends Controller
         {
             $sasd = $time->created_at;
             $expTime = $sasd->addMonths(6);
-           
-            
         }
       
 
