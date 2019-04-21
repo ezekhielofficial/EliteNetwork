@@ -21,11 +21,8 @@ class ActivationCodeController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         
-        foreach($ActivationCodes as $time)
-        {
-            $sasd = $time->created_at;
-            $expTime = $sasd->addMonths(6);
-        }
+       
+        
       
 
         
@@ -33,7 +30,9 @@ class ActivationCodeController extends Controller
 
         
     
-        return view('ActivationCodePage.ActivationCodeIndex')->with('ActivationCodes',$ActivationCodes)->with('expTime', $expTime)->with('usercode', $user->activationcode);
+        return view('ActivationCodePage.ActivationCodeIndex')
+        ->with('ActivationCodes',$ActivationCodes)
+        ->with('usercode', $user->activationcode);
        
        
     }

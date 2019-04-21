@@ -4,7 +4,17 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+                </div><br />
+              @endif
             <div class="card">
+                    
                 <div class="card-header">Dashboard</div>
                 @if(session()->get('success'))
                 <div class="alert alert-success">
@@ -39,8 +49,8 @@
     
                     <tr>
                             <th>{{$code->ActivationCode}}</th> 
-                            <th>{{$code->created_at}}</th> 
-                            <th>{{$code->ActivationCode}}</th> 
+                            <th>{{$code->created_at->format('Y-M-d')}}</th> 
+                            <th>{{$code->created_at->addMonths(6)->format('Y-M-d')}}</th> 
                     </tr>
                     @endforeach
                 </table>

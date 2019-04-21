@@ -25,14 +25,12 @@
     </thead>
     <tbody>
         @foreach($usercode as $ActivationCode)
-        @if($expTime >= $ActivationCode->created_at )
+        @if($ActivationCode->created_at->addMonths(6) >= $ActivationCode->created_at )
         <tr>
             <td>{{$ActivationCode->id}}</td>
             <td>{{$ActivationCode->ActivationCode}}</td>
-            <td>{{$expTime->format('M-d-Y')}}</td>
-            <td>{{$ActivationCode->created_at->format('M-d-Y')}}</td>
-         
-            
+            <td>{{$ActivationCode->created_at->addMonths(6)->format('M-d-Y')}}</td>
+            <td>{{$ActivationCode->created_at->format('M-d-Y')}}</td>   
             <td>
                 <form action="{{ route('ActivationCode.destroy', $ActivationCode->id)}}" method="post">
                   @csrf
@@ -47,6 +45,7 @@
     </tbody>
     
   </table>
+
   
 <div>
 @endsection
