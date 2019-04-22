@@ -42,6 +42,7 @@
                             <th>Activation Code</th>
                             <th>Created at</th>  
                             <th>Expired on</th> 
+                            <th>Time left</th> 
                         </tr>
     
                    
@@ -51,6 +52,8 @@
                             <th>{{$code->ActivationCode}}</th> 
                             <th>{{$code->created_at->format('Y-M-d')}}</th> 
                             <th>{{$code->created_at->addMonths(6)->format('Y-M-d')}}</th> 
+                            <th>{{$code->created_at->addMonths(6)->diffForHumans(Carbon\Carbon::now(),1,3,6)}}</th>
+                    
                     </tr>
                     @endforeach
                 </table>

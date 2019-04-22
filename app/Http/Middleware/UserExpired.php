@@ -17,17 +17,26 @@ class UserExpired
      */
     public function handle($request, Closure $next)
     {   
+      
         
         $userac = Auth::user()->activatecode;
+       
+      
+        
+        if ( $userac == null && Auth::user()->isAdmin != null)
+        {
+            return $next($request);
+        }
         $codesearch = ActivationCode::where('ActivationCode', 'LIKE', $userac)->first();
-        $expdate = $codesearch->created_at->addMinutes(2);
         $created_date = $codesearch->created_at;
+        
 
-    if (Carbon::now()->diffInMonths($created_date) >= 6)
+    if (Auth::user()->isAdmin != null || Carbon::now()->diffInMonths($created_date) >= 6 )
     {     
             return redirect('/ActivateAccount/ActivationCode');
     }
 
-        return $next($request);
+    return $next($request);
+        
     }
 }

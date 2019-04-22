@@ -29,8 +29,10 @@ class HomeController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
+   
        
-        return view('dashboard')->with('User_code', $user->activationcode );
+        return view('dashboard')
+        ->with('User_code', $user->activationcode );
     }
     public function admin()
     {
