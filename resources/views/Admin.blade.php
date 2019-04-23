@@ -48,14 +48,16 @@
                    
                   </div>
                 </td>
-                <td><a href="{{ route('PageCrud.edit',$page->id)}}" class="btn btn-primary">Edit</a></td>
-                                    <td>
+                <td><div class="btn-group">
+                  <a href="{{ route('PageCrud.edit',$page->id)}}" class="btn btn-primary"> <i class="fas fa-edit"></i></a>
+                                    
+                                      
                                         <form action="{{ route('PageCrud.destroy', $page->id)}}" method="post">
                                           @csrf
                                           @method('DELETE')
-                                          <button class="btn btn-danger" type="submit">Delete</button>
+                                          <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
                                         </form>
-                                    </td>
+                                      </div></td>
               </tr>
               @endforeach
               

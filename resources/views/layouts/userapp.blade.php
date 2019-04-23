@@ -75,25 +75,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a  href="/admin" class="nav-link">
+                <a  href="/dashboard" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Dashboard
                   </p>
                 </a>
               </a>
-
-              <li  class="nav-item">
-                <a href="/ActivationCode" class="nav-link">
-                  <i class="nav-icon fas fa-code"></i>
-                  <p>
-                    Activation Codes
-                  </p>
-                </a>
-              </li>
-
-              
-
               <li  class="nav-item">
                 <router-link to="#" class="nav-link">
                   <i class="nav-icon fas fa-user-circle"></i>
