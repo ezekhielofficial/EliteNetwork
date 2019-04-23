@@ -21,49 +21,7 @@
                   {{ session()->get('success') }}  
                 </div><br />
               @endif
-                @if(auth()->user()->isAdmin == 1)
                 
-                <div class="card-body">
-                        <div class="text-center">
-                                <a href="{{ route('ActivationCode.create')}}" class="btn btn-primary">Generate a Code</a>
-                                <a href="/PageCrud" class="btn btn-primary" role="button">Page Dashboard</a>
-                                <a class="btn btn-primary" href="{{route('ActivationCode.index')}}"> My Activation Codes</a> 
-                             <br>
-                                Hi admin, You are logged in!
-                            </div>
-                    
-
-                    
-                   
-                </div>
-                <hr>
-                <table class="table table-striped">
-                        <tr>
-                            <th>Activation Code</th>
-                            <th>Created at</th>  
-                            <th>Expired on</th> 
-                            <th>Time left</th> 
-                        </tr>
-    
-                   
-                    @foreach($User_code as $code)
-    
-                    <tr>
-                            <th>{{$code->ActivationCode}}</th> 
-                            <th>{{$code->created_at->format('Y-M-d')}}</th> 
-                            <th>{{$code->created_at->addMonths(6)->format('Y-M-d')}}</th> 
-                            <th>{{$code->created_at->addMonths(6)->diffForHumans(Carbon\Carbon::now(),1,3,6)}}</th>
-                    
-                    </tr>
-                    @endforeach
-                </table>
-                
-                              
-                
-                @else
-               
-            
-
                 <div class="card-body">
                         <a href="{{ route('ActivationCode.create')}}" class="btn btn-primary">Generate a Code</a>
                     Hi muggle, You are logged in!
@@ -89,7 +47,7 @@
 
 
                
-            @endif
+           
 
                 
                    

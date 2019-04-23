@@ -1,12 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.adminapp')
 
 @section('content')
-<style>
-  .uper {
-    margin-top: 40px;
-  }
-</style>
-<div class="card uper">
+
+<div class="card mt-5">
   <div class="card-header">
     Create ActivationCode
   </div>

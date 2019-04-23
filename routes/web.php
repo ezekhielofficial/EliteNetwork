@@ -30,7 +30,8 @@ Route::group(['middleware' => ['auth']], function()
     ->middleware('admin');  
         Route::get('/dashboard', 'HomeController@index')
     ->name('dashboard');
-    Route::resource('ActivationCode', 'ActivationCodeController');
+    Route::resource('ActivationCode', 'ActivationCodeController')
+    ->middleware('admin');  
         });
     });
     Route::get('ActivateAccount/ActivationCode', 'ExpiredAccountController@expired')

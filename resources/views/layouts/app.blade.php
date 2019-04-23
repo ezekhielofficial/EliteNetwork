@@ -21,15 +21,22 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
 </head>
-
+<style>
+.bg-dark, .bg-dark a {
+    color: #ababab !important;
+}
+</style>
 <body>
     
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                
+                    <a href="/" class="brand-link">
+                        <img src="/img/logo.png" alt="Elite Nework" class="brand-image img-circle elevation-3"
+                             style="opacity: .8">
+                        <span class="brand-text font-weight-light">Elite Network</span>
+                      </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -81,7 +88,7 @@
                                         {{ __('Logout') }}
                                     </a>
                                     @if(auth()->user()->isAdmin == 1)
-                                    <a class="dropdown-item" href="/PageCrud/create">Create New Page</a>
+                                    <a class="dropdown-item" href="/PageCrud">Create New Page</a>
                                     @endif
                                     <a class="dropdown-item" href="{{route('ActivationCode.index')}}">Activation Codes</a> 
                                     <a class="dropdown-item" href="/dashboard">Dashboard</a>    

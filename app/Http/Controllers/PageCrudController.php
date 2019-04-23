@@ -26,7 +26,6 @@ class PageCrudController extends Controller
      */
     public function create()
     {
-        return view('Pages.CreatePage');
     }
 
     /**
@@ -44,7 +43,7 @@ class PageCrudController extends Controller
         ]);
         $Page = Page::create($validatedData);
    
-        return redirect('/PageCrud/create')->with('success', 'Book is successfully saved');
+        return redirect('/PageCrud')->with('success', 'Book is successfully Created');
     }
 
     /**
