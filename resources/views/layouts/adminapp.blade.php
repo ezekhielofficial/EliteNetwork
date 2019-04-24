@@ -95,13 +95,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
               
 
               <li  class="nav-item">
-                <router-link to="#" class="nav-link">
+                <a href="/Users" class="nav-link">
                   <i class="nav-icon fas fa-user-circle"></i>
                   <p>
-                    My Users
+                    Users
                   </p>
-                </router-link>
+                </a>
               </li>
+
+
+
+              <li  class="nav-item">
+                  <a href="/Users" class="nav-link">
+                    <i class="nav-icon fab fa-connectdevelop"></i>
+                    <p>
+                      My Network
+                    </p>
+                  </a>
+                </li>
 
 
           <li class="nav-item">

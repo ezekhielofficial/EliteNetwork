@@ -28,6 +28,10 @@ Route::group(['middleware' => ['auth']], function()
     ->middleware('admin');
     Route::get('/admin', 'PageCrudController@index')
     ->middleware('admin');  
+
+    Route::get('/Users', 'UsersController@index')
+    ->middleware('admin');  
+    
         Route::get('/dashboard', 'HomeController@index')
     ->name('dashboard');
     Route::resource('ActivationCode', 'ActivationCodeController')

@@ -59,7 +59,7 @@ class ActivationCodeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'ActivationCode'=>'required',
+            'ActivationCode'=>'required','unique',
             
           ]);
           $AC = new ActivationCode([
@@ -68,7 +68,9 @@ class ActivationCodeController extends Controller
             
           ]);
           $AC->save();
+          
           return redirect('/ActivationCode')->with('success', 'ActivationCode has been created');
+
     }
 
     /**
