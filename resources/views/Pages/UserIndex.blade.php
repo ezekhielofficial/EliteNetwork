@@ -25,7 +25,11 @@
                   <td class="sorting_1">{{$user->name}}</td>
                   <td>{{$user->email}}</td>
                   <td>{{$user->sponsorname}}</td>
+                  @if($user->activatecode != null)
                   <td>{{$user->activatecode}}</td>
+                  @else
+                  <td>User Not Activated</td>
+                  @endif
                   <td>{{$user->created_at->format('M,d Y')}}</td>
                 </tr>
                 @endforeach

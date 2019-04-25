@@ -18,21 +18,13 @@ class ActivationCodeController extends Controller
     public function index()
     {
         $ActivationCodes = ActivationCode::all();
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
         
+            return view('ActivationCodePage.ActivationCodeIndex')
+            ->with('ActivationCodes',$ActivationCodes);
+        
+
        
-        
       
-
-        
-
-
-        
-    
-        return view('ActivationCodePage.ActivationCodeIndex')
-        ->with('ActivationCodes',$ActivationCodes)
-        ->with('usercode', $user->activationcode);
        
        
     }

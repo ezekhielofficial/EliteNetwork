@@ -24,6 +24,11 @@ Route::group(['middleware' => ['auth']], function()
     {
         Route::group(['middleware' => ['user_expired']],function()
         {
+            
+            Route::get('/Connection', 'ConnectionController@ConnectionView');
+
+
+
         Route::resource('PageCrud', 'PageCrudController')
     ->middleware('admin');
     Route::get('/admin', 'PageCrudController@index')
