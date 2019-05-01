@@ -19,8 +19,11 @@
                 <th>Activation Code:</th>
                 <th>Expires on:</th>
                 <th>Created at:</th>
-                <th >Action</th>
+                <th>Action:</th>
             </tr>
+
+
+
 
             @foreach($ActivationCodes as $ActivationCode)
 
