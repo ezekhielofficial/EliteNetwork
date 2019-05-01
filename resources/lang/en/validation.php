@@ -128,8 +128,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'activatecode' => [
+            'unique' => 'Activation code has already been used!',
         ],
     ],
 

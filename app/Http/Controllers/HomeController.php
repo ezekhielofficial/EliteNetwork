@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use Carbon\Carbon;
+use App\ActivationCode;
 class HomeController extends Controller
 {
     /**
@@ -21,9 +23,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    
+
     public function index()
     {
-        return view('dashboard');
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+   
+       if( $user->isAdmin == 1)
+       {
+           return redirect('/admin');
+       }
+        return view('dashboard')
+        ->with('User_code', $user->activationcode );
     }
     public function admin()
     {

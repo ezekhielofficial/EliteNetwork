@@ -12,6 +12,22 @@
                         @csrf
 
                         <div class="form-group row">
+                                <label for="sponsorname" class="col-md-4 col-form-label text-md-right">{{ __('Sponsor Name') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="sponsorname" type="text" class="form-control{{ $errors->has('sponsorname') ? ' is-invalid' : '' }}" name="sponsorname"  required autofocus>
+    
+                                    @if ($errors->has('sponsorname'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('sponsorname') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+
+
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">

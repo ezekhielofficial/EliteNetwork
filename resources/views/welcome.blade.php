@@ -1,101 +1,14 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>EliteNetwork</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            a.ex1:hover, a.ex1:active {color: black;}
-            html, body {
-                background-color: #e3e7ed;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 500;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 15px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a class="ex1" href="/dashboard">dashboard</a>
-                    @else
-                        <a class="ex1" href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a class="ex1" href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-            
-            <div class="content">
-               
-                <div class="title m-b-md">
-                    Elite Network
-                </div>
-                <div class="jumbotron-1">
-                    <h1 class="display-3">Together for more!</h1>
-                </div>
-           
-                
-                <div class="links ">
-                    <a class="ex1" data-toggle="tooltip" data-placement="top" title="About Page" href="/about">about</a>
-                    <a class="ex1"data-toggle="tooltip" data-placement="top" title="Blog Page"href="/blog">Blog</a>
-                    <a class="ex1"data-toggle="tooltip" data-placement="top" title="contact Page"href="/contact">contact</a>
-                </div>
-            </div>
+@extends('layouts.app')
+@section('content')
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+          <h1 class="display-4 font-weight-normal">Elite Network</h1>
+          <p class="lead font-weight-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem saepe ut laborum odit illum adipisci necessitatibus, dolor velit doloribus repudiandae, cum nesciunt iusto. Odit aut quod distinctio repellat aperiam ullam?</p>
+          <a class="btn btn-outline-secondary" href="/register">Together For More</a>
         </div>
-    </body>
-</html>
+        <div class="product-device shadow-sm d-none d-md-block"></div>
+        <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+
+@endsection

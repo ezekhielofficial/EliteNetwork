@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\HomeController;
+use PHPUnit\Util\Test;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,15 +20,39 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function()
 {
-    Route::get('/dashboard', 'HomeController@index')
-    ->name('dashboard');
-    Route::resource('PageCrud', 'PageCrudController')
+    Route::group(['middleware' => ['activated']],function()
+    {
+        Route::group(['middleware' => ['user_expired']],function()
+        {
+            
+            Route::get('/Connection', 'ConnectionController@ConnectionView')->middleware('admin');
+            Route::get('/UserReferral', 'ConnectionController@ConnectionView');
+
+
+
+        Route::resource('PageCrud', 'PageCrudController')
     ->middleware('admin');
+    Route::get('/admin', 'PageCrudController@index')
+    ->middleware('admin');  
+
+    Route::get('/Users', 'UsersController@index')
+    ->middleware('admin');  
+    
+        Route::get('/dashboard', 'HomeController@index')
+    ->name('dashboard');
+    Route::resource('ActivationCode', 'ActivationCodeController')
+    ->middleware('admin');  
+        });
+    });
+    Route::get('ActivateAccount/ActivationCode', 'ExpiredAccountController@expired')
+    ->name('Account.expired');
+    Route::post('ActivateAccount/account.post_activate', 'ExpiredAccountController@postActivate')
+    ->name('account.post_activate');
+    
    
    
 });
-    Route::get('/admin', 'PageCrudController@index')
-    ->middleware('admin');  
+    
     Route::get('/AccessDenied', 'HomeController@accessdenied')
     ->name('lol');
 
@@ -34,5 +60,6 @@ Route::group(['middleware' => ['auth']], function()
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::get('/{page}', 'PagesController@page')->name('page');
