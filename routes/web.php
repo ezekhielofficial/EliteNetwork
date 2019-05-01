@@ -25,7 +25,8 @@ Route::group(['middleware' => ['auth']], function()
         Route::group(['middleware' => ['user_expired']],function()
         {
             
-            Route::get('/Connection', 'ConnectionController@ConnectionView');
+            Route::get('/Connection', 'ConnectionController@ConnectionView')->middleware('admin');
+            Route::get('/UserReferral', 'ConnectionController@ConnectionView');
 
 
 

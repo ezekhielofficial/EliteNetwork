@@ -116,7 +116,7 @@
 </body>
 <footer class="text-muted">
         <div class="container text-center">
-          <p></i> <strong >Copyright &copy; 2019-2020  <a href="https://www.facebook.com/eze.khiel3">Xin</a>.</strong> All rights reserved.</i></p>
+          <p></i> <strong >Copyright &copy; 2019-2020  <a href="https://www.facebook.com/eze.khiel3" target="_blank">Xin</a>.</strong> All rights reserved.</i></p>
         </div>
       </footer>
 

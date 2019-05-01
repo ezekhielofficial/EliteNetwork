@@ -83,12 +83,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </a>
               <li  class="nav-item">
-                <router-link to="#" class="nav-link">
+                <a href="/UserReferral" class="nav-link">
                   <i class="nav-icon fas fa-user-circle"></i>
                   <p>
-                    My Users
+                    My Referral
                   </p>
-                </router-link>
+                </a>
               </li>
 
 

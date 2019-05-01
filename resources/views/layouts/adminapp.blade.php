@@ -109,7 +109,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <a href="/Connection" class="nav-link">
                     <i class="nav-icon fab fa-connectdevelop"></i>
                     <p>
-                      My Network
+                      My Referrals
                     </p>
                   </a>
                 </li>

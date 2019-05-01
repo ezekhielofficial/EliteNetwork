@@ -16,19 +16,20 @@
         <div class="card-body table-responsive p-0">
           <table class="table table-hover">
             <tbody><tr>
-            
                 <th>Activation Code:</th>
                 <th>Expires on:</th>
                 <th>Created at:</th>
                 <th >Action</th>
             </tr>
+
             @foreach($ActivationCodes as $ActivationCode)
+
             @if((Carbon\Carbon::now()->diffInMonths($ActivationCode->created_at) <= 6) )
             <tr>
-                
+
                 <td>{{$ActivationCode->ActivationCode}}</td>
                 <td>{{$ActivationCode->created_at->addMonths(6)->format('M-d-Y')}}</td>
-                <td>{{$ActivationCode->created_at->format('M-d-Y')}}</td>   
+                <td>{{$ActivationCode->created_at->format('M-d-Y')}}</td>
                 <td>
                     <form action="{{ route('ActivationCode.destroy', $ActivationCode->id)}}" method="post">
                       @csrf
@@ -37,10 +38,10 @@
                     </form>
                 </td>
             </tr>
-           
+
             @endif
 
-            
+
             @endforeach
           </tbody></table>
         </div>
@@ -52,7 +53,7 @@
           <h3 class="card-title">Expired Activation Codes</h3>
 
           <div class="card-tools">
-            
+
           </div>
         </div>
         <!-- /.card-header -->
@@ -62,10 +63,10 @@
             @foreach($ActivationCodes as $ActivationCode)
             @if((Carbon\Carbon::now()->diffInMonths($ActivationCode->created_at) >= 6) )
             <tr>
-                
+
                 <td>{{$ActivationCode->ActivationCode}}</td>
                 <td>{{$ActivationCode->created_at->addMonths(6)->format('M-d-Y')}}</td>
-                <td>{{$ActivationCode->created_at->format('M-d-Y')}}</td>   
+                <td>{{$ActivationCode->created_at->format('M-d-Y')}}</td>
                 <td>
                     <form action="{{ route('ActivationCode.destroy', $ActivationCode->id)}}" method="post">
                       @csrf
@@ -74,18 +75,18 @@
                     </form>
                 </td>
             </tr>
-          
+
 
             @endif
             @endforeach
-            
+
           </tbody></table>
         </div>
         <!-- /.card-body -->
       </div>
     </div>
-    
+
   </div>
-  
-      
+
+
 @endsection

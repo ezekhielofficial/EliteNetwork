@@ -9,10 +9,12 @@ class ActivationCode extends Model
     protected $fillable = [
         'ActivationCode',
         'User_id',
-        
+
       ];
       public function user()
     {
         return $this->belongsTo('App\User');
     }
+
+
 }

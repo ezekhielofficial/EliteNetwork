@@ -18,15 +18,21 @@ class ActivationCodeController extends Controller
     public function index()
     {
         $ActivationCodes = ActivationCode::all();
-        
-            return view('ActivationCodePage.ActivationCodeIndex')
-            ->with('ActivationCodes',$ActivationCodes);
-        
+        $searchuser = User::all();
 
-       
-      
-       
-       
+
+            return view('ActivationCodePage.ActivationCodeIndex')
+            ->with('ActivationCodes',$ActivationCodes)
+            ->with('users',$searchuser);
+
+
+
+
+
+
+
+
+
     }
 
     /**
@@ -36,8 +42,8 @@ class ActivationCodeController extends Controller
      */
     public function create()
     {
-        
-        
+
+
         $random = Str::random(4).date('Hsi');
         return view('ActivationCodePage.ActivationCodeCreate')->with('random',$random);
     }
@@ -52,15 +58,15 @@ class ActivationCodeController extends Controller
     {
         $request->validate([
             'ActivationCode'=>'required','unique',
-            
+
           ]);
           $AC = new ActivationCode([
             'ActivationCode' => $request->get('ActivationCode'),
             'User_id'=> Auth::user()->id,
-            
+
           ]);
           $AC->save();
-          
+
           return redirect('/ActivationCode')->with('success', 'ActivationCode has been created');
 
     }
@@ -82,7 +88,7 @@ class ActivationCodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   
+
 
     /**
      * Update the specified resource in storage.
@@ -91,7 +97,7 @@ class ActivationCodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   
+
 
     /**
      * Remove the specified resource from storage.
@@ -103,7 +109,7 @@ class ActivationCodeController extends Controller
     {
         $share = ActivationCode::find($id);
         $share->delete();
-   
+
         return redirect('/ActivationCode')->with('success', 'Activation Code has been deleted Successfully');
     }
 }
